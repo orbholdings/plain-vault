@@ -1,0 +1,29 @@
+{
+  "name": "plain-vault",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Offline KeePass-compatible vault for Android and Windows with paired local sync",
+  "main": "desktop/main.cjs",
+  "scripts": {
+    "build": "node scripts/build-web.cjs",
+    "setup-java-tests": "node scripts/compile-java-tests.cjs",
+    "test": "node --test tests/*.test.cjs",
+    "start": "electron .",
+    "package:windows": "node scripts/package-windows.cjs"
+  },
+  "dependencies": {
+    "hash-wasm": "4.12.0",
+    "jsqr": "1.4.0",
+    "kdbxweb": "2.1.1",
+    "qrcode": "1.5.4",
+    "selfsigned": "5.5.0"
+  },
+  "devDependencies": {
+    "electron": "44.7.0",
+    "esbuild": "0.25.10"
+  },
+  "overrides": {
+    "@xmldom/xmldom": "0.9.12",
+    "fflate": "0.8.3"
+  }
+}

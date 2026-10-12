@@ -1,0 +1,71 @@
+PLAIN VAULT 0.1.0 — FIRST TESTING RELEASE
+
+Android: open Plain-Vault-0.1.0-Android.apk to install it.
+Windows 10/11 x64: extract the ENTIRE Windows ZIP, then open Plain-Vault.exe
+inside the extracted Plain-Vault folder. Keep the accompanying files together.
+
+START ON YOUR PC
+1. Create a vault using a long, memorable master passphrase (12+ characters).
+2. Add a few TEST logins for this preview release.
+3. Open Local sync and press Start local sync.
+4. Allow Plain Vault through Windows Firewall for your PRIVATE network.
+5. Select the PC's Wi-Fi address and press Show pairing QR code.
+
+CONNECT YOUR PHONE
+1. Connect the phone to the same Wi-Fi or hotspot as the PC.
+   The Wi-Fi/hotspot does not need an internet connection.
+2. On the phone's welcome screen, press Pair with my PC.
+3. Scan the PC's QR code, or paste its pairing code. Press Pair devices.
+4. The encrypted PC vault is downloaded. Enter the SAME master passphrase
+   to unlock and import it. The passphrase is not transmitted.
+5. On subsequent occasions, unlock both vaults, start Local sync on the PC,
+   then use Local sync > Sync now on the phone.
+
+EVERYDAY USE
+Add and edit entries on either device. Each works independently offline.
+Sync is manual in this release. The PC must be running, awake, unlocked
+and listening, and both devices must be on the same reachable local network.
+Locking/minimising the PC stops its sync listener. Restart Local sync after
+unlocking. It keeps the same port (48521); pairing normally survives restarts.
+If the PC's Wi-Fi address changes, pair again. A router reservation avoids this.
+Guest Wi-Fi or client isolation may block device-to-device connections.
+
+If both devices edited an entry, versions are kept in the entry's History.
+Open History to inspect and restore the password you want to use.
+Deletion moves entries into the encrypted KeePass recycle bin. This release
+does not display that bin; a compatible KeePass app can recover its contents.
+
+BACKUPS AND USB TRANSFER
+Backups & export > Export encrypted .kdbx vault writes a password-protected
+file through the system file picker. The vault locks before the picker opens.
+Copy that file by USB to another device, then Import a .kdbx vault there.
+The same master passphrase opens both copies. This is file transfer; use local
+sync to merge changes made independently on both copies.
+
+The last 10 previous vault files are backed up locally before saves. A backup
+on the same device will not survive device loss or uninstalling the Android app.
+Keep a separate encrypted export on a USB drive or another device.
+To restore a local backup, select it in Backups & export, then enter the master
+password used by that backup. Import/replacement first backs up the current vault.
+
+SECURITY AND LIMITS
+This is a preview for testing, not an independently audited password manager.
+Use test credentials initially. The first APK is signed and verified, and the
+vault/storage/transport tests pass, but installation and real-device behaviour
+still need testing on your Windows PC and Android phone.
+No master password reset or cloud recovery exists. Keep the passphrase safe.
+Android screenshots and OS backups are disabled. Camera permission is used
+only when you choose to scan a pairing QR code. Network permission is used
+for local sync. No ads, analytics, online account or automatic cloud sync.
+
+Included: password/secure-note storage, generator, search/categories,
+password history, encrypted backups/import/export and paired local Wi-Fi sync.
+Not yet included: Android autofill, browser extension, biometric unlocking,
+background sync, TOTP generation or passkeys. Password-only KDBX vaults are
+supported; key-file and hardware challenge-response vaults are not supported.
+Requires Android 9+ with a recent Android System WebView; Windows build is x64.
+
+The optional Buy me a coffee button opens the external Square payment link
+only when you choose to press it.
+
+Read PRIVACY-AND-SECURITY.md for technical details and the testing limits.

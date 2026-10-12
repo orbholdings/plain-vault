@@ -1,0 +1,34 @@
+name: Bug report
+description: Report a reproducible problem with the preview.
+title: "[Bug]: "
+body:
+  - type: markdown
+    attributes:
+      value: "Use dummy credentials. Do not include vaults, passwords, pairing codes, tokens or private keys. Follow SECURITY.md for security findings."
+  - type: input
+    id: version
+    attributes:
+      label: App version
+      placeholder: "0.1.0"
+    validations:
+      required: true
+  - type: textarea
+    id: device
+    attributes:
+      label: Device and operating system
+      description: Include Android System WebView version for Android issues.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: For sync issues, describe the local network and firewall setup.
+    validations:
+      required: true
+  - type: textarea
+    id: result
+    attributes:
+      label: Expected and actual behaviour
+    validations:
+      required: true

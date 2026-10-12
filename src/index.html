@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self'; img-src 'self' data: blob:; connect-src 'none'; media-src 'self' blob:; font-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-src 'none'">
+  <title>Plain Vault</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <section id="auth" class="auth-shell">
+    <div class="auth-brand"><img src="icon.svg" width="56" height="56" alt=""><div><h1>Plain Vault</h1><p>Your passwords. Your devices.</p></div></div>
+    <div class="auth-card">
+      <span class="eyebrow">OFFLINE BY DESIGN</span><h2 id="auth-title">A private home for your passwords.</h2>
+      <p id="auth-description">Create an encrypted vault on this device. Pair with your PC whenever you want to sync.</p>
+      <form id="auth-form" autocomplete="off">
+        <label id="name-label">Vault name<input id="vault-name" maxlength="100" value="My vault" autocomplete="off"></label>
+        <label>Master password<span class="input-action"><input id="master" type="password" autocomplete="new-password" autocapitalize="off" spellcheck="false" required><button type="button" class="reveal" data-reveal="master" aria-label="Show master password">Show</button></span></label>
+        <label id="confirm-label">Confirm master password<input id="master-confirm" type="password" autocomplete="new-password" autocapitalize="off" spellcheck="false"></label>
+        <p class="hint" id="master-hint">Use a long passphrase of at least 12 characters. There is no master password reset.</p>
+        <button class="primary wide" id="auth-submit">Create my vault</button>
+      </form>
+      <div class="auth-alternatives"><button id="auth-import" class="secondary">Import a .kdbx vault</button><button id="auth-pair" class="secondary" hidden>Pair with my PC</button><button id="auth-pull" class="secondary" hidden>Get vault from PC</button><button id="auth-backups" class="text-button" hidden>Restore an encrypted backup</button><button id="auth-cancel-import" class="text-button" hidden>Cancel import</button></div>
+    </div>
+    <div class="trust-row"><span>Encrypted on your device</span><span>No cloud account</span><span>Local sync</span></div>
+    <p class="preview">Preview release · keep a separate encrypted backup.</p>
+  </section>
+  <div id="workspace" class="workspace" hidden>
+    <aside class="sidebar">
+      <div class="brand"><img src="icon.svg" width="36" height="36" alt=""><strong>Plain Vault</strong></div>
+      <span class="vault-badge"><span class="status-dot"></span> Vault unlocked</span>
+      <nav aria-label="Vault tools"><button id="nav-passwords" class="nav active">Passwords <span id="count">0</span></button><button id="nav-generator" class="nav">Password generator</button><button id="nav-sync" class="nav">Local sync</button><button id="nav-backups" class="nav">Backups &amp; export</button></nav>
+      <div class="sidebar-bottom"><p>Stored here.<br>Shared only when you sync.</p><button id="support" class="text-button">Buy me a coffee ↗</button><button id="lock" class="secondary wide">Lock vault</button></div>
+    </aside>
+    <main class="main">
+      <header><div><span class="eyebrow">YOUR PRIVATE COLLECTION</span><h1 id="vault-title">My vault</h1></div><button id="add" class="primary">+ Add password</button></header>
+      <div class="local-strip"><span class="status-dot"></span><span>Saved locally · automatic lock after 2 minutes idle</span><span class="small-pill">PREVIEW</span></div>
+      <div class="search-row"><label class="search"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Search names, usernames or websites" aria-label="Search passwords" autocomplete="off"></label><label class="category-label"><span class="sr-only">Category</span><select id="category"><option value="">All categories</option></select></label></div>
+      <div class="list-heading"><span>Saved passwords</span><span id="filtered-count"></span></div>
+      <div id="entries" class="entries"></div>
+      <div id="empty" class="empty"><div class="empty-mark">✦</div><h2 id="empty-title">Make room for a little peace of mind.</h2><p id="empty-description">Add your first login. We’ll keep it encrypted, right here.</p><button id="empty-add" class="primary">Add your first password</button></div>
+      <footer>Plain Vault 0.1.0 · KeePass-compatible encrypted storage</footer>
+    </main>
+  </div>
+  <dialog id="modal"><div class="modal-head"><h2 id="modal-title"></h2><button id="modal-close" class="icon-button" aria-label="Close dialog">✕</button></div><div id="modal-content"></div></dialog>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <div id="working" role="status" hidden><span class="spinner"></span><span id="working-text">Working…</span></div>
+</body>
+</html>
